@@ -139,7 +139,7 @@
     .content img, .method-figure {
       width: 100%;
       max-width: 900px;
-      margin: 0 auto 1.5rem auto;
+      margin: 0 auto 0.5rem auto; /* 减少底部边距，让caption更靠近 */
       display: block;
       box-shadow: none; /* Remove shadows */
       border-radius: 4px; 
@@ -200,6 +200,25 @@
       border-radius: 8px;
       margin-bottom: 20px;
     }
+    
+    /* 图片说明文字与图片之间距离控制 */
+    .figure-caption {
+      margin-top: 0.5rem !important; /* 减小caption与图片的距离 */
+      padding-top: 0 !important;
+    }
+    
+    /* 大型可视化图片样式 - 确保与第一个teaser图一致 */
+    .wide-visualization {
+      max-width: 1200px !important; 
+      width: 100% !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    
+    /* 确保所有SVG图像有白色背景 */
+    img[src$=".svg"] {
+      background-color: #ffffff !important;
+    }
   </style>
 </head>
 <body>
@@ -222,7 +241,7 @@
           <a class="navbar-item" href="https://yuqingwang1029.github.io/Loong-video/">
             Loong
           </a>
-          <a class="navbar-item" href="https://yuqingwang1029.github.io/PAR/">
+          <a class="navbar-item" href="https://yuqingwang1029.github.io/PAR-project/">
             PAR
           </a>
           <a class="navbar-item" href="#">
@@ -268,7 +287,7 @@
             <div class="publication-links">
               <!-- arXiv Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/abs/" target="_blank">
+                <a href="#" target="_blank">
                   <span class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -298,12 +317,12 @@
 
 <!-- Teaser image with white background -->
 <section class="hero teaser">
-  <div class="container" style="max-width: 1200px; background-color: #ffffff;">
+  <div class="container wide-visualization" style="background-color: #ffffff;">
     <div class="hero-body">
       <div class="has-text-centered" data-aos="fade-up">
         <img src="./static/images/vis.svg" alt="TokenBridge Teaser" style="width: 100%; max-width: none; background-color: #ffffff;">
       </div>
-      <h2 class="subtitle has-text-centered" data-aos="fade-up" data-aos-delay="200">
+      <h2 class="subtitle has-text-centered figure-caption" data-aos="fade-up" data-aos-delay="200">
         TokenBridge combines the representational capacity of continuous tokens with the modeling simplicity of discrete approaches for high-quality visual generation.
       </h2>
     </div>
@@ -338,12 +357,12 @@
           <!-- Method comparison figure -->
           <div class="has-text-centered comparison-container" data-aos="fade-up" data-aos-delay="100">
             <img src="./static/images/compare.svg" alt="Method Comparison" class="method-figure" style="background-color: #ffffff;">
-          </div>
           
-          <div class="content has-text-justified mt-4" data-aos="fade-up" data-aos-delay="150">
-            <p>
-               (a) Traditional discrete tokenization incorporates quantization during training, resulting in tokenizer training instability and limited vocabulary size that restricts representational capacity. (b) Hybrid continuous AR models preserve rich visual information but need complex distribution modeling (diffusion or GMM) beyond standard categorical prediction. (c) Our approach bridges these paradigms by applying post-training quantization to pretrained continuous features, maintaining the high representational capacity of continuous tokens while enabling simple autoregressive modeling.
-            </p>
+            <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="150">
+              <p>
+                 (a) Traditional discrete tokenization incorporates quantization during training, resulting in tokenizer training instability and limited vocabulary size that restricts representational capacity. (b) Hybrid continuous AR models preserve rich visual information but need complex distribution modeling (diffusion or GMM) beyond standard categorical prediction. (c) Our approach bridges these paradigms by applying post-training quantization to pretrained continuous features, maintaining the high representational capacity of continuous tokens while enabling simple autoregressive modeling.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -382,12 +401,12 @@
         <div class="content">
           <div class="has-text-centered comparison-container" data-aos="fade-up" data-aos-delay="100">
             <img src="./static/images/quant.svg" alt="Post-Training Quantization Process" class="method-figure" style="background-color: #ffffff;">
-          </div>
           
-          <div class="content has-text-justified mt-4" data-aos="fade-up" data-aos-delay="150">
-            <p>
-              <strong>Illustration of our post-training quantization process.</strong> The top row shows the pretrained continuous VAE tokenizer, mapping an input image to continuous latent features and reconstructing it through the decoder. Our post-training quantization process (middle) transforms these continuous features into discrete tokens by independently quantizing each channel dimension. The bottom-left shows how our approach preserves the original Gaussian-like distribution (purple curve) in discretized form (purple histogram). The right portion demonstrates the de-quantization process that maps indices back to continuous values for decoding.
-            </p>
+            <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="150">
+              <p>
+                <strong>Illustration of our post-training quantization process.</strong> The top row shows the pretrained continuous VAE tokenizer, mapping an input image to continuous latent features and reconstructing it through the decoder. Our post-training quantization process (middle) transforms these continuous features into discrete tokens by independently quantizing each channel dimension. The bottom-left shows how our approach preserves the original Gaussian-like distribution (purple curve) in discretized form (purple histogram). The right portion demonstrates the de-quantization process that maps indices back to continuous values for decoding.
+              </p>
+            </div>
           </div>
         </div>
         
@@ -396,12 +415,12 @@
         <div class="content">
           <div class="has-text-centered comparison-container" data-aos="fade-up" data-aos-delay="100">
             <img src="./static/images/token.svg" alt="Dimension-wise Autoregressive Prediction" class="method-figure small-figure" style="background-color: #ffffff;">
-          </div>
           
-          <div class="content has-text-justified mt-4" data-aos="fade-up" data-aos-delay="150">
-            <p>
-              <strong>Our autoregressive generation process.</strong> At the spatial level, our model autoregressively generates tokens conditioning on previous positions. For each spatial location, we apply dimension-wise sequential prediction to efficiently handle the large token space. This approach decomposes the modeling of each token into a series of smaller classification problems while preserving essential inter-dimensional dependencies.
-            </p>
+            <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="150">
+              <p>
+                <strong>Our autoregressive generation process.</strong> At the spatial level, our model autoregressively generates tokens conditioning on previous positions. For each spatial location, we apply dimension-wise sequential prediction to efficiently handle the large token space. This approach decomposes the modeling of each token into a series of smaller classification problems while preserving essential inter-dimensional dependencies.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -421,12 +440,12 @@
         <div class="content">
           <div class="has-text-centered comparison-container" data-aos="fade-up" data-aos-delay="100">
             <img src="./static/images/results.png" alt="Quantitative Comparison" class="method-figure" style="background-color: #ffffff;">
-          </div>
           
-          <div class="content has-text-justified mt-4" data-aos="fade-up" data-aos-delay="150">
-            <p>
-              <strong>Comparison of visual generation methods on ImageNet 256×256.</strong> Our model achieves comparable performance to the best continuous token approach (MAR) while using standard categorical prediction in autoregressive modeling.
-            </p>
+            <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="150">
+              <p>
+                <strong>Comparison of visual generation methods on ImageNet 256×256.</strong> Our model achieves comparable performance to the best continuous token approach (MAR) while using standard categorical prediction in autoregressive modeling.
+              </p>
+            </div>
           </div>
         </div>
         
@@ -435,23 +454,23 @@
         <div class="content">
           <div class="has-text-centered comparison-container" data-aos="fade-up" data-aos-delay="100">
             <img src="./static/images/recons.svg" alt="Reconstruction Quality Comparison" class="method-figure" style="background-color: #ffffff;">
-          </div>
           
-          <div class="content has-text-justified mt-4" data-aos="fade-up" data-aos-delay="150">
-            <p>
-              <strong>Reconstruction quality of typical continuous and discrete tokenizers.</strong> For discrete baselines, we use VQ from LlamaGen and LFQ from OpenMAGVIT2. Our method achieves reconstruction quality comparable to continuous VAE, preserving more fine details than traditional discrete tokenizers, especially in text and facial features.
-            </p>
+            <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="150">
+              <p>
+                <strong>Reconstruction quality of typical continuous and discrete tokenizers.</strong> For discrete baselines, we use VQ from LlamaGen and LFQ from OpenMAGVIT2. Our method achieves reconstruction quality comparable to continuous VAE, preserving more fine details than traditional discrete tokenizers, especially in text and facial features.
+              </p>
+            </div>
           </div>
           
           <!-- Different granularity reconstruction results -->
           <div class="has-text-centered comparison-container mt-6" data-aos="fade-up" data-aos-delay="200">
             <img src="./static/images/recons_b.svg" alt="Different Granularity Reconstruction Results" class="method-figure" style="background-color: #ffffff;">
-          </div>
           
-          <div class="content has-text-justified mt-4" data-aos="fade-up" data-aos-delay="250">
-            <p>
-              <strong>Different quantization granularity reconstruction results.</strong> Visual comparison showing reconstructions at varying quantization levels. While global structure remains preserved across all quantization levels, finer quantization (higher B values) better maintains details in textures and edges.
-            </p>
+            <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="250">
+              <p>
+                <strong>Different quantization granularity reconstruction results.</strong> Visual comparison showing reconstructions at varying quantization levels. While global structure remains preserved across all quantization levels, finer quantization (higher B values) better maintains details in textures and edges.
+              </p>
+            </div>
           </div>
         </div>
         
@@ -460,37 +479,37 @@
         <div class="content">
           <div class="has-text-centered comparison-container" data-aos="fade-up" data-aos-delay="100">
             <img src="./static/images/parallel.svg" alt="Token Prediction Strategy Comparison" class="method-figure" style="background-color: #ffffff;">
-          </div>
           
-          <div class="content has-text-justified mt-4" data-aos="fade-up" data-aos-delay="150">
-            <p>
-              <strong>Token Prediction Strategy.</strong> Comparison of dimension-wise token prediction approaches. Top: Parallel prediction produces blurry, inconsistent images. Bottom: Our autoregressive approach sequentially predicts token dimensions, generating coherent, high-quality images. This highlights the interdependence of token dimensions and they cannot be predicted independently.
-            </p>
+            <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="150">
+              <p>
+                <strong>Token Prediction Strategy.</strong> Comparison of dimension-wise token prediction approaches. Top: Parallel prediction produces blurry, inconsistent images. Bottom: Our autoregressive approach sequentially predicts token dimensions, generating coherent, high-quality images. This highlights the interdependence of token dimensions and they cannot be predicted independently.
+              </p>
+            </div>
           </div>
           
           <div class="has-text-centered comparison-container mt-6" data-aos="fade-up" data-aos-delay="200">
             <img src="./static/images/confidence.svg" alt="Confidence-guided Generation" class="method-figure" style="background-color: #ffffff;">
-          </div>
           
-          <div class="content has-text-justified mt-4" data-aos="fade-up" data-aos-delay="250">
-            <p>
-              <strong>Generation guided by token confidence.</strong> Our discrete token approach enables confidence-guided generation, producing clean foreground objects against simple backgrounds by prioritizing high-confidence tokens. This provides an advantage over continuous tokens, which lack explicit token-level confidence scores.
-            </p>
+            <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="250">
+              <p>
+                <strong>Generation guided by token confidence.</strong> Our discrete token approach enables confidence-guided generation, producing clean foreground objects against simple backgrounds by prioritizing high-confidence tokens. This provides an advantage over continuous tokens, which lack explicit token-level confidence scores.
+              </p>
+            </div>
           </div>
         </div>
         
         <!-- More Visualization Results -->
         <h3 class="title is-4 has-text-centered mt-6" data-aos="fade-up">More Visualization Results</h3>
         <section class="hero teaser">
-          <div class="container comparison-container" style="max-width: 1200px; background-color: #ffffff;">
+          <div class="container wide-visualization comparison-container" style="background-color: #ffffff;">
             <div class="has-text-centered" data-aos="fade-up" data-aos-delay="100">
               <img src="./static/images/more.svg" alt="ImageNet Generation Results" style="width: 100%; max-width: none; background-color: #ffffff;">
-            </div>
             
-            <div class="content has-text-justified mt-4" data-aos="fade-up" data-aos-delay="150">
-              <p>
-                <strong>Class-conditional generation results on ImageNet.</strong> Our approach achieves high-quality generation with fine details and realistic textures across diverse object categories.
-              </p>
+              <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="150">
+                <p>
+                  <strong>Class-conditional generation results on ImageNet.</strong> Our approach achieves high-quality generation with fine details and realistic textures across diverse object categories.
+                </p>
+              </div>
             </div>
           </div>
         </section>
