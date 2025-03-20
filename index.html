@@ -40,88 +40,60 @@
     /* Global background setting */
     body, html {
       background-color: #ffffff;
+      font-family: 'Google Sans', 'Noto Sans', sans-serif;
     }
     
-    /* Card and image container styles with explicit white background */
-    .card, .card-image, .card-content, .content, .container, .hero-body {
-      background-color: #ffffff;
-    }
-    
-    /* Image comparison grid styling */
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      background-color: #ffffff; /* Explicit white background */
-      padding: 10px;
-      border: 1px dashed #dbdbdb; /* Light border to define the area */
-      margin-bottom: 20px;
-    }
-    
-    .image-grid img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-    
-    .card-image video {
-      width: 150%;
-      height: 150%;
-      object-fit: cover;
-    }
-    
-    .gif-card .card-image {
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      background-color: #ffffff;
-    }
-    
-    .gif-card .card-image img {
-      object-fit: cover;
-    }
-    
-    .gif-card .card-content {
-      width: 100%;
-    }
-    
-    .smaller-text {
-      font-size: 0.8rem;
-    }
-    
-    .smallest-text {
-      font-size: 0.5rem;
-    }
-    
-    .section-divider {
-      border-top: 1px solid #dbdbdb;
-      margin-top: 3rem;
-      margin-bottom: 3rem;
-    }
-    
-    .wider-video-container {
-      max-width: 1600px !important;
-      width: 90% !important;
-      margin-left: auto;
-      margin-right: auto;
-      background-color: #ffffff;
-    }
-    
-    .wider-column {
-      padding: 0.75rem;
-      background-color: #ffffff;
-    }
-
-    /* Contribution points styling */
-    .contribution-item {
-      color: #0074D9;  /* Bright blue */
-      font-weight: 600;
-      padding: 10px 15px;
-      background-color: #f8f9ff;  /* Very light blue background */
+    /* 内容卡片样式 - 统一的蓝色背景 */
+    .content-card {
+      background-color: #f8f9ff;
       border-radius: 8px;
-      border-left: 4px solid #0074D9;  /* Left blue border */
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .content-card:hover {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+    
+    /* Enhanced section styling */
+    .section {
+      padding: 3rem 1.5rem;
+    }
+    
+    /* 居中的标题样式 */
+    .title-centered {
+      position: relative;
+      text-align: center;
+      color: #0074D9;
+      margin-bottom: 2.5rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    
+    .title-centered::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: #0074D9;
+      border-radius: 2px;
+    }
+    
+    /* 贡献项目样式 - 修改文字颜色为正常 */
+    .contribution-item {
+      color: #333; /* 改为正常颜色 */
+      font-weight: 500; /* 稍微减少粗体 */
+      padding: 15px 20px;
+      background-color: #f8f9ff;
+      border-radius: 8px;
       margin-bottom: 15px !important;
       transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
     .contribution-item:hover {
@@ -129,21 +101,15 @@
       transform: translateX(5px);
     }
     
-    /* Section title styling */
-    .title.is-3 {
-      color: #0074D9;
-      margin-bottom: 1.5rem;
-    }
-    
     /* Image styling */
     .content img, .method-figure {
       width: 100%;
       max-width: 900px;
-      margin: 0 auto 0.5rem auto; /* 减少底部边距，让caption更靠近 */
+      margin: 0 auto 0.5rem auto;
       display: block;
-      box-shadow: none; /* Remove shadows */
-      border-radius: 4px; 
-      background-color: #ffffff; /* Explicit white background */
+      box-shadow: none;
+      border-radius: 8px; 
+      background-color: #ffffff;
       transition: transform 0.3s ease;
     }
     
@@ -176,48 +142,126 @@
       font-weight: 600;
     }
     
-    blockquote {
-      border-left: 4px solid #0074D9;
-      background-color: #f8f9ff;
-      padding: 15px;
-      margin: 20px 0;
-      border-radius: 4px;
-    }
-    
-    /* Acknowledgment section styling */
-    .acknowledgment {
-      color: #000000;
-      text-align: left;
-      margin-top: 2rem;
-      font-size: 1rem;
-      background-color: #ffffff;
-    }
-    
-    /* Image comparison container */
-    .comparison-container {
-      background-color: #ffffff; /* Explicit white background */
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-    
     /* 图片说明文字与图片之间距离控制 */
     .figure-caption {
-      margin-top: 0.5rem !important; /* 减小caption与图片的距离 */
+      margin-top: 0.8rem !important;
       padding-top: 0 !important;
-    }
-    
-    /* 大型可视化图片样式 - 确保与第一个teaser图一致 */
-    .wide-visualization {
-      max-width: 1200px !important; 
-      width: 100% !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #444;
     }
     
     /* 确保所有SVG图像有白色背景 */
     img[src$=".svg"] {
       background-color: #ffffff !important;
+    }
+    
+    /* 图片宽度设置 */
+    .full-width-container {
+      width: 100%;
+      max-width: 1000px; /* 控制容器宽度 */
+      margin: 0 auto;
+    }
+    
+    /* 标准宽度的图片 */
+    .full-width-comparison {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    
+    /* 图片说明宽度 */
+    .caption-container {
+      width: 100%;
+      max-width: 1000px; /* 与图片宽度一致 */
+      margin: 0 auto;
+    }
+    
+    .standard-figure {
+      max-width: 900px;
+      width: 100%;
+    }
+    
+    /* 调整Token Dilemma部分 */
+    .dilemma-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 15px;
+      justify-content: space-between;
+    }
+    
+    .dilemma-side {
+      flex: 1;
+      min-width: 250px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: all 0.2s ease;
+    }
+    
+    .dilemma-side:hover {
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+    
+    .dilemma-side h4 {
+      color: #0074D9;
+      font-weight: 600;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+      position: relative;
+      padding-bottom: 8px;
+    }
+    
+    .dilemma-side h4::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: #0074D9;
+    }
+    
+    .dilemma-side ul {
+      margin-left: 20px;
+      line-height: 1.6;
+    }
+    
+    .dilemma-side li {
+      margin-bottom: 8px;
+    }
+    
+    /* 方法标题样式 */
+    .method-title {
+      font-size: 1.5rem;
+      color: #0074D9;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    /* 代码格式 */
+    code {
+      background-color: transparent !important;
+      color: #333 !important;
+      padding: 0 !important;
+      font-family: monospace;
+    }
+    
+    pre {
+      background-color: transparent !important;
+      padding: 0 !important;
+      border: none !important;
+      margin: 0 !important;
+    }
+    
+    /* 贡献点中的蓝色文字覆盖 */
+    .contribution-item strong,
+    .contribution-item a,
+    .contribution-item p {
+      color: #333 !important;
     }
   </style>
 </head>
@@ -315,55 +359,84 @@
   </div>
 </section>
 
-<!-- Teaser image with white background -->
-<section class="hero teaser">
-  <div class="container wide-visualization" style="background-color: #ffffff;">
-    <div class="hero-body">
-      <div class="has-text-centered" data-aos="fade-up">
-        <img src="./static/images/vis.svg" alt="TokenBridge Teaser" style="width: 100%; max-width: none; background-color: #ffffff;">
-      </div>
-      <h2 class="subtitle has-text-centered figure-caption" data-aos="fade-up" data-aos-delay="200">
-        TokenBridge combines the representational capacity of continuous tokens with the modeling simplicity of discrete approaches for high-quality visual generation.
-      </h2>
-    </div>
-  </div>
-</section>
-
-<!-- Main Contributions Section -->
+<!-- TOKEN REPRESENTATION DILEMMA SECTION -->
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3 has-text-centered" data-aos="fade-up">Main Contributions</h2>
+        <h2 class="title is-3 title-centered" data-aos="fade-up">Token Representation Dilemma</h2>
         <div class="content">
-          <ul style="list-style-type: none; padding: 0;">
-            <li class="is-size-5 mb-4 has-text-left contribution-item" data-aos="fade-up" data-aos-delay="100">A novel paradigm that bridges continuous and discrete token representations, achieving continuous level visual quality with the standard autoregressive cross-entropy loss.</li>
-            <li class="is-size-5 mb-4 has-text-left contribution-item" data-aos="fade-up" data-aos-delay="200">A training-free quantization approach that transforms pretrained VAE features into discrete tokens without the optimization instabilities of conventional discrete tokenizers.</li>
-            <li class="is-size-5 mb-4 has-text-left contribution-item" data-aos="fade-up" data-aos-delay="300">An efficient dimension-wise autoregressive prediction mechanism that handles exponentially large token spaces.</li>
-          </ul>
+          <div class="content-card" data-aos="fade-up" data-aos-delay="100">
+            <p class="is-size-5">
+              Autoregressive visual generation models typically rely on tokenizers to compress images into tokens that can be predicted sequentially. However, a fundamental dilemma exists in token representation:
+            </p>
+            
+            <div class="dilemma-container">
+              <div class="dilemma-side">
+                <h4>Discrete Tokens</h4>
+                <ul>
+                  <li>😊 Enable straightforward modeling with standard cross-entropy loss</li>
+                  <li>😢 Suffer from information loss due to training quantization</li>
+                  <li>😢 Face tokenizer training instability issues</li>
+                  <li>😢 Limited vocabulary size restricts representational capacity</li>
+                </ul>
+              </div>
+              
+              <div class="dilemma-side">
+                <h4>Continuous Tokens</h4>
+                <ul>
+                  <li>😊 Better preserve rich visual details</li>
+                  <li>😊 Avoid quantization bottlenecks during training</li>
+                  <li>😢 Require complex distribution modeling (diffusion or GMM)</li>
+                  <li>😢 Complicate the generation pipeline with specialized components</li>
+                </ul>
+              </div>
+            </div>
+            
+            <p class="is-size-5 mt-4">
+              <strong>How do we bridge this gap?</strong>
+            </p>
+            
+            <ol class="mt-2 ml-5">
+              <li class="mb-2">We <strong>decouple discretization from the tokenizer training process</strong> through post-training quantization that directly obtains discrete tokens from pretrained continuous representations, enabling seamless conversion between token types.</li>
+              <li class="mb-2">Our approach <strong>bridges the quality gap</strong> between discrete and continuous methods, achieving continuous-level visual quality while maintaining the modeling simplicity of discrete approaches - offering the best of both worlds.</li>
+            </ol>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Comparison Section -->
+<!-- Comparison Section - 受控宽度 -->
 <section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3 has-text-centered" data-aos="fade-up">Comparison of Different AR Approaches</h2>
-        <div class="content">
-          <!-- Method comparison figure -->
-          <div class="has-text-centered comparison-container" data-aos="fade-up" data-aos-delay="100">
-            <img src="./static/images/compare.svg" alt="Method Comparison" class="method-figure" style="background-color: #ffffff;">
-          
-            <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="150">
-              <p>
-                 (a) Traditional discrete tokenization incorporates quantization during training, resulting in tokenizer training instability and limited vocabulary size that restricts representational capacity. (b) Hybrid continuous AR models preserve rich visual information but need complex distribution modeling (diffusion or GMM) beyond standard categorical prediction. (c) Our approach bridges these paradigms by applying post-training quantization to pretrained continuous features, maintaining the high representational capacity of continuous tokens while enabling simple autoregressive modeling.
-              </p>
-            </div>
-          </div>
+  <div class="full-width-container">
+    <h2 class="title is-3 title-centered" data-aos="fade-up">Comparison of Different AR Approaches</h2>
+    <div class="content" data-aos="fade-up" data-aos-delay="100">
+      <img src="./static/images/compare.svg" alt="Method Comparison" class="full-width-comparison" style="background-color: #ffffff;">
+      
+      <div class="caption-container">
+        <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="150">
+          <p>
+             <strong>(a) Traditional discrete tokenization</strong> incorporates quantization during training, resulting in tokenizer training instability and limited vocabulary size that restricts representational capacity. <strong>(b) Hybrid continuous AR models</strong> preserve rich visual information but need complex distribution modeling (diffusion or GMM) beyond standard categorical prediction. <strong>(c) Our approach</strong> bridges these paradigms by applying post-training quantization to pretrained continuous features, maintaining the high representational capacity of continuous tokens while enabling simple autoregressive modeling.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser image with controlled width -->
+<section class="section">
+  <div class="full-width-container">
+    <div class="content" data-aos="fade-up">
+      <img src="./static/images/vis.svg" alt="TokenBridge Teaser" class="full-width-comparison" style="background-color: #ffffff;">
+      
+      <div class="caption-container">
+        <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="200">
+          <p>
+            TokenBridge combines the representational capacity of continuous tokens with the modeling simplicity of discrete approaches for high-quality visual generation.
+          </p>
         </div>
       </div>
     </div>
@@ -375,7 +448,8 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3 has-text-centered" data-aos="fade-up">Abstract</h2>
+        <h2 class="title is-3 title-centered" data-aos="fade-up">Abstract</h2>
+        
         <div class="content has-text-justified" data-aos="fade-up" data-aos-delay="100">
           <p>
             Autoregressive visual generation models typically rely on tokenizers to compress images into tokens that can be predicted sequentially. A fundamental dilemma exists in token representation: discrete tokens enable straightforward modeling with standard cross-entropy loss, but suffer from information loss and tokenizer training instability; continuous tokens better preserve visual details, but require complex distribution modeling, complicating the generation pipeline. In this paper, we propose TokenBridge, which bridges this gap by maintaining the strong representation capacity of continuous tokens while preserving the modeling simplicity of discrete tokens.
@@ -389,31 +463,51 @@
   </div>
 </section>
 
+<!-- Main Contributions Section - 修改文字颜色为正常 -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 title-centered" data-aos="fade-up">Main Contributions</h2>
+        <div class="content">
+          <ul style="list-style-type: none; padding: 0;">
+            <li class="is-size-5 mb-4 has-text-left contribution-item" data-aos="fade-up" data-aos-delay="100">A novel paradigm that bridges continuous and discrete token representations, achieving continuous level visual quality with the standard autoregressive cross-entropy loss.</li>
+            <li class="is-size-5 mb-4 has-text-left contribution-item" data-aos="fade-up" data-aos-delay="200">A training-free quantization approach that transforms pretrained VAE features into discrete tokens without the optimization instabilities of conventional discrete tokenizers.</li>
+            <li class="is-size-5 mb-4 has-text-left contribution-item" data-aos="fade-up" data-aos-delay="300">An efficient dimension-wise autoregressive prediction mechanism that handles exponentially large token spaces.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Method Section -->
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3 has-text-centered" data-aos="fade-up">Method</h2>
+        <h2 class="title is-3 title-centered" data-aos="fade-up">Method</h2>
         
         <!-- Post-Training Quantization -->
-        <h3 class="title is-4 has-text-centered mt-6" data-aos="fade-up">Post-Training Quantization</h3>
-        <div class="content">
-          <div class="has-text-centered comparison-container" data-aos="fade-up" data-aos-delay="100">
-            <img src="./static/images/quant.svg" alt="Post-Training Quantization Process" class="method-figure" style="background-color: #ffffff;">
+        <h3 class="method-title mt-6" data-aos="fade-up">Post-Training Quantization</h3>
+        <div class="full-width-container" data-aos="fade-up" data-aos-delay="100">
+          <div class="has-text-centered">
+            <img src="./static/images/quant.svg" alt="Post-Training Quantization Process" class="full-width-comparison" style="background-color: #ffffff;">
           
-            <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="150">
-              <p>
-                <strong>Illustration of our post-training quantization process.</strong> The top row shows the pretrained continuous VAE tokenizer, mapping an input image to continuous latent features and reconstructing it through the decoder. Our post-training quantization process (middle) transforms these continuous features into discrete tokens by independently quantizing each channel dimension. The bottom-left shows how our approach preserves the original Gaussian-like distribution (purple curve) in discretized form (purple histogram). The right portion demonstrates the de-quantization process that maps indices back to continuous values for decoding.
-              </p>
+            <div class="caption-container">
+              <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="150">
+                <p>
+                  <strong>Illustration of our post-training quantization process.</strong> The top row shows the pretrained continuous VAE tokenizer, mapping an input image to continuous latent features and reconstructing it through the decoder. Our post-training quantization process (middle) transforms these continuous features into discrete tokens by independently quantizing each channel dimension. The bottom-left shows how our approach preserves the original Gaussian-like distribution (purple curve) in discretized form (purple histogram). The right portion demonstrates the de-quantization process that maps indices back to continuous values for decoding.
+                </p>
+              </div>
             </div>
           </div>
         </div>
         
         <!-- Efficient Large-Vocabulary Token Modeling -->
-        <h3 class="title is-4 has-text-centered mt-6" data-aos="fade-up">Efficient Large-Vocabulary Token Modeling</h3>
-        <div class="content">
-          <div class="has-text-centered comparison-container" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="method-title mt-6" data-aos="fade-up">Efficient Large-Vocabulary Token Modeling</h3>
+        <div class="content" data-aos="fade-up" data-aos-delay="100">
+          <div class="has-text-centered">
             <img src="./static/images/token.svg" alt="Dimension-wise Autoregressive Prediction" class="method-figure small-figure" style="background-color: #ffffff;">
           
             <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="150">
@@ -433,13 +527,13 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3 has-text-centered" data-aos="fade-up">Experiments</h2>
+        <h2 class="title is-3 title-centered" data-aos="fade-up">Experiments</h2>
         
         <!-- Main Results -->
-        <h3 class="title is-4 has-text-centered mt-6" data-aos="fade-up">Main Results</h3>
-        <div class="content">
-          <div class="has-text-centered comparison-container" data-aos="fade-up" data-aos-delay="100">
-            <img src="./static/images/results.png" alt="Quantitative Comparison" class="method-figure" style="background-color: #ffffff;">
+        <h3 class="method-title mt-6" data-aos="fade-up">Main Results</h3>
+        <div class="content" data-aos="fade-up" data-aos-delay="100">
+          <div class="has-text-centered">
+            <img src="./static/images/results.png" alt="Quantitative Comparison" class="standard-figure" style="background-color: #ffffff;">
           
             <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="150">
               <p>
@@ -450,61 +544,69 @@
         </div>
         
         <!-- Properties of Our Tokenizer -->
-        <h3 class="title is-4 has-text-centered mt-6" data-aos="fade-up">Properties of Our Tokenizer</h3>
-        <div class="content">
-          <div class="has-text-centered comparison-container" data-aos="fade-up" data-aos-delay="100">
-            <img src="./static/images/recons.svg" alt="Reconstruction Quality Comparison" class="method-figure" style="background-color: #ffffff;">
+        <h3 class="method-title mt-6" data-aos="fade-up">Properties of Our Tokenizer</h3>
+        <div class="full-width-container" data-aos="fade-up" data-aos-delay="100">
+          <div class="has-text-centered">
+            <img src="./static/images/recons.svg" alt="Reconstruction Quality Comparison" class="full-width-comparison" style="background-color: #ffffff;">
           
-            <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="150">
-              <p>
-                <strong>Reconstruction quality of typical continuous and discrete tokenizers.</strong> For discrete baselines, we use VQ from LlamaGen and LFQ from OpenMAGVIT2. Our method achieves reconstruction quality comparable to continuous VAE, preserving more fine details than traditional discrete tokenizers, especially in text and facial features.
-              </p>
+            <div class="caption-container">
+              <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="150">
+                <p>
+                  <strong>Reconstruction quality of typical continuous and discrete tokenizers.</strong> For discrete baselines, we use VQ from LlamaGen and LFQ from OpenMAGVIT2. Our method achieves reconstruction quality comparable to continuous VAE, preserving more fine details than traditional discrete tokenizers, especially in text and facial features.
+                </p>
+              </div>
             </div>
           </div>
           
           <!-- Different granularity reconstruction results -->
-          <div class="has-text-centered comparison-container mt-6" data-aos="fade-up" data-aos-delay="200">
-            <img src="./static/images/recons_b.svg" alt="Different Granularity Reconstruction Results" class="method-figure" style="background-color: #ffffff;">
+          <div class="has-text-centered mt-6" data-aos="fade-up" data-aos-delay="200">
+            <img src="./static/images/recons_b.svg" alt="Different Granularity Reconstruction Results" class="full-width-comparison" style="background-color: #ffffff;">
           
-            <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="250">
-              <p>
-                <strong>Different quantization granularity reconstruction results.</strong> Visual comparison showing reconstructions at varying quantization levels. While global structure remains preserved across all quantization levels, finer quantization (higher B values) better maintains details in textures and edges.
-              </p>
+            <div class="caption-container">
+              <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="250">
+                <p>
+                  <strong>Different quantization granularity reconstruction results.</strong> Visual comparison showing reconstructions at varying quantization levels. While global structure remains preserved across all quantization levels, finer quantization (higher B values) better maintains details in textures and edges.
+                </p>
+              </div>
             </div>
           </div>
         </div>
         
         <!-- Properties of Our Generator -->
-        <h3 class="title is-4 has-text-centered mt-6" data-aos="fade-up">Properties of Our Generator</h3>
-        <div class="content">
-          <div class="has-text-centered comparison-container" data-aos="fade-up" data-aos-delay="100">
-            <img src="./static/images/parallel.svg" alt="Token Prediction Strategy Comparison" class="method-figure" style="background-color: #ffffff;">
+        <h3 class="method-title mt-6" data-aos="fade-up">Properties of Our Generator</h3>
+        <div class="full-width-container" data-aos="fade-up" data-aos-delay="100">
+          <div class="has-text-centered">
+            <img src="./static/images/parallel.svg" alt="Token Prediction Strategy Comparison" class="full-width-comparison" style="background-color: #ffffff;">
           
-            <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="150">
-              <p>
-                <strong>Token Prediction Strategy.</strong> Comparison of dimension-wise token prediction approaches. Top: Parallel prediction produces blurry, inconsistent images. Bottom: Our autoregressive approach sequentially predicts token dimensions, generating coherent, high-quality images. This highlights the interdependence of token dimensions and they cannot be predicted independently.
-              </p>
+            <div class="caption-container">
+              <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="150">
+                <p>
+                  <strong>Token Prediction Strategy.</strong> Comparison of dimension-wise token prediction approaches. Top: Parallel prediction produces blurry, inconsistent images. Bottom: Our autoregressive approach sequentially predicts token dimensions, generating coherent, high-quality images. This highlights the interdependence of token dimensions and they cannot be predicted independently.
+                </p>
+              </div>
             </div>
           </div>
           
-          <div class="has-text-centered comparison-container mt-6" data-aos="fade-up" data-aos-delay="200">
-            <img src="./static/images/confidence.svg" alt="Confidence-guided Generation" class="method-figure" style="background-color: #ffffff;">
+          <div class="has-text-centered mt-6" data-aos="fade-up" data-aos-delay="200">
+            <img src="./static/images/confidence.svg" alt="Confidence-guided Generation" class="full-width-comparison" style="background-color: #ffffff;">
           
-            <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="250">
-              <p>
-                <strong>Generation guided by token confidence.</strong> Our discrete token approach enables confidence-guided generation, producing clean foreground objects against simple backgrounds by prioritizing high-confidence tokens. This provides an advantage over continuous tokens, which lack explicit token-level confidence scores.
-              </p>
+            <div class="caption-container">
+              <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="250">
+                <p>
+                  <strong>Generation guided by token confidence.</strong> Our discrete token approach enables confidence-guided generation, producing clean foreground objects against simple backgrounds by prioritizing high-confidence tokens. This provides an advantage over continuous tokens, which lack explicit token-level confidence scores.
+                </p>
+              </div>
             </div>
           </div>
         </div>
         
         <!-- More Visualization Results -->
-        <h3 class="title is-4 has-text-centered mt-6" data-aos="fade-up">More Visualization Results</h3>
-        <section class="hero teaser">
-          <div class="container wide-visualization comparison-container" style="background-color: #ffffff;">
-            <div class="has-text-centered" data-aos="fade-up" data-aos-delay="100">
-              <img src="./static/images/more.svg" alt="ImageNet Generation Results" style="width: 100%; max-width: none; background-color: #ffffff;">
-            
+        <h3 class="method-title mt-6" data-aos="fade-up">More Visualization Results</h3>
+        <div class="full-width-container" data-aos="fade-up" data-aos-delay="100">
+          <div class="has-text-centered">
+            <img src="./static/images/more.svg" alt="ImageNet Generation Results" class="full-width-comparison" style="background-color: #ffffff;">
+          
+            <div class="caption-container">
               <div class="content has-text-justified figure-caption" data-aos="fade-up" data-aos-delay="150">
                 <p>
                   <strong>Class-conditional generation results on ImageNet.</strong> Our approach achieves high-quality generation with fine details and realistic textures across diverse object categories.
@@ -512,21 +614,27 @@
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title is-3 has-text-centered" data-aos="fade-up">BibTeX</h2>
-    <pre data-aos="fade-up" data-aos-delay="100"><code>coming soon~
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 title-centered" data-aos="fade-up">BibTeX</h2>
+        <div data-aos="fade-up" data-aos-delay="100">
+          <pre><code>coming soon~
 </code></pre>
+        </div>
 
-    <div class="acknowledgment" data-aos="fade-up" data-aos-delay="150">
-      <h3>Acknowledgment</h3>
-      <p>The authors are grateful to <a href="https://www.tianhongli.me/">Tianhong Li</a> for helpful discussions on MAR and to <a href="https://enjoyyi.github.io/">Yi Jiang</a> for valuable feedback on the early version of this work.</p>
+        <h3 class="method-title mt-6" data-aos="fade-up">Acknowledgment</h3>
+        <div data-aos="fade-up" data-aos-delay="150">
+          <p>The authors are grateful to <a href="https://www.tianhongli.me/">Tianhong Li</a> for helpful discussions on MAR and to <a href="https://enjoyyi.github.io/">Yi Jiang</a> for valuable feedback on the early version of this work.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
