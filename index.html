@@ -37,51 +37,89 @@
   <script src="./static/js/index.js"></script>
 
   <style>
+    /* Global background setting */
+    body, html {
+      background-color: #ffffff;
+    }
+    
+    /* Card and image container styles with explicit white background */
+    .card, .card-image, .card-content, .content, .container, .hero-body {
+      background-color: #ffffff;
+    }
+    
+    /* Image comparison grid styling */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      background-color: #ffffff; /* Explicit white background */
+      padding: 10px;
+      border: 1px dashed #dbdbdb; /* Light border to define the area */
+      margin-bottom: 20px;
+    }
+    
+    .image-grid img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    
     .card-image video {
       width: 150%;
       height: 150%;
       object-fit: cover;
     }
+    
     .gif-card .card-image {
       padding: 0;
       display: flex;
       justify-content: center;
+      background-color: #ffffff;
     }
+    
     .gif-card .card-image img {
       object-fit: cover;
     }
+    
     .gif-card .card-content {
       width: 100%;
     }
+    
     .smaller-text {
       font-size: 0.8rem;
     }
+    
     .smallest-text {
       font-size: 0.5rem;
     }
+    
     .section-divider {
       border-top: 1px solid #dbdbdb;
       margin-top: 3rem;
       margin-bottom: 3rem;
     }
+    
     .wider-video-container {
       max-width: 1600px !important;
       width: 90% !important;
       margin-left: auto;
       margin-right: auto;
+      background-color: #ffffff;
     }
+    
     .wider-column {
       padding: 0.75rem;
+      background-color: #ffffff;
     }
 
-    /* 贡献点的醒目样式 */
+    /* Contribution points styling */
     .contribution-item {
-      color: #0074D9;  /* 鲜明的蓝色 */
+      color: #0074D9;  /* Bright blue */
       font-weight: 600;
       padding: 10px 15px;
-      background-color: #f8f9ff;  /* 淡蓝色背景 */
+      background-color: #f8f9ff;  /* Very light blue background */
       border-radius: 8px;
-      border-left: 4px solid #0074D9;  /* 左侧蓝色边框 */
+      border-left: 4px solid #0074D9;  /* Left blue border */
       margin-bottom: 15px !important;
       transition: all 0.3s ease;
     }
@@ -91,37 +129,38 @@
       transform: translateX(5px);
     }
     
-    /* 章节标题样式 - 移除下划线和悬停效果 */
+    /* Section title styling */
     .title.is-3 {
       color: #0074D9;
       margin-bottom: 1.5rem;
     }
     
-    /* 统一图片风格 - 与背景融合 */
+    /* Image styling */
     .content img, .method-figure {
       width: 100%;
       max-width: 900px;
       margin: 0 auto 1.5rem auto;
       display: block;
-      box-shadow: none; /* 移除阴影使其与背景融合 */
-      border-radius: 4px; /* 轻微圆角使外观更柔和 */
-      background-color: transparent; /* 确保背景透明 */
+      box-shadow: none; /* Remove shadows */
+      border-radius: 4px; 
+      background-color: #ffffff; /* Explicit white background */
       transition: transform 0.3s ease;
     }
     
-    /* 特殊处理尺寸较小的图片 */
+    /* Smaller figures */
     .method-figure.small-figure {
       width: 60%;
       max-width: 700px;
     }
 
-    /* 特殊处理宽大的图片 */
+    /* Full width figures */
     .full-width-figure {
       width: 100% !important;
       max-width: none !important;
+      background-color: #ffffff;
     }
     
-    /* 导航栏改进 */
+    /* Navigation bar styling */
     .navbar {
       position: sticky;
       top: 0;
@@ -131,7 +170,7 @@
       transition: all 0.3s ease;
     }
     
-    /* 引用和强调的优化 */
+    /* Text emphasis styling */
     strong {
       color: #0074D9;
       font-weight: 600;
@@ -145,12 +184,21 @@
       border-radius: 4px;
     }
     
-    /* 致谢样式 */
+    /* Acknowledgment section styling */
     .acknowledgment {
       color: #000000;
       text-align: left;
       margin-top: 2rem;
       font-size: 1rem;
+      background-color: #ffffff;
+    }
+    
+    /* Image comparison container */
+    .comparison-container {
+      background-color: #ffffff; /* Explicit white background */
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
     }
   </style>
 </head>
@@ -248,12 +296,12 @@
   </div>
 </section>
 
-<!-- Teaser image - 只放大图片尺寸 -->
+<!-- Teaser image with white background -->
 <section class="hero teaser">
-  <div class="container" style="max-width: 1200px;"> <!-- 增加容器宽度 -->
+  <div class="container" style="max-width: 1200px; background-color: #ffffff;">
     <div class="hero-body">
       <div class="has-text-centered" data-aos="fade-up">
-        <img src="./static/images/vis.svg" alt="TokenBridge Teaser" style="width: 100%; max-width: none;"> <!-- 放大图片 -->
+        <img src="./static/images/vis.svg" alt="TokenBridge Teaser" style="width: 100%; max-width: none; background-color: #ffffff;">
       </div>
       <h2 class="subtitle has-text-centered" data-aos="fade-up" data-aos-delay="200">
         TokenBridge combines the representational capacity of continuous tokens with the modeling simplicity of discrete approaches for high-quality visual generation.
@@ -288,8 +336,8 @@
         <h2 class="title is-3 has-text-centered" data-aos="fade-up">Comparison of different AR approaches</h2>
         <div class="content">
           <!-- Method comparison figure -->
-          <div class="has-text-centered" data-aos="fade-up" data-aos-delay="100">
-            <img src="./static/images/compare.svg" alt="Method Comparison" class="method-figure">
+          <div class="has-text-centered comparison-container" data-aos="fade-up" data-aos-delay="100">
+            <img src="./static/images/compare.svg" alt="Method Comparison" class="method-figure" style="background-color: #ffffff;">
           </div>
           
           <div class="content has-text-justified mt-4" data-aos="fade-up" data-aos-delay="150">
@@ -332,8 +380,8 @@
         <!-- Post-Training Quantization -->
         <h3 class="title is-4 has-text-centered mt-6" data-aos="fade-up">Post-Training Quantization</h3>
         <div class="content">
-          <div class="has-text-centered" data-aos="fade-up" data-aos-delay="100">
-            <img src="./static/images/quant.svg" alt="Post-Training Quantization Process" class="method-figure">
+          <div class="has-text-centered comparison-container" data-aos="fade-up" data-aos-delay="100">
+            <img src="./static/images/quant.svg" alt="Post-Training Quantization Process" class="method-figure" style="background-color: #ffffff;">
           </div>
           
           <div class="content has-text-justified mt-4" data-aos="fade-up" data-aos-delay="150">
@@ -346,8 +394,8 @@
         <!-- Efficient Large-Vocabulary Token Modeling -->
         <h3 class="title is-4 has-text-centered mt-6" data-aos="fade-up">Efficient Large-Vocabulary Token Modeling</h3>
         <div class="content">
-          <div class="has-text-centered" data-aos="fade-up" data-aos-delay="100">
-            <img src="./static/images/token.svg" alt="Dimension-wise Autoregressive Prediction" class="method-figure small-figure">
+          <div class="has-text-centered comparison-container" data-aos="fade-up" data-aos-delay="100">
+            <img src="./static/images/token.svg" alt="Dimension-wise Autoregressive Prediction" class="method-figure small-figure" style="background-color: #ffffff;">
           </div>
           
           <div class="content has-text-justified mt-4" data-aos="fade-up" data-aos-delay="150">
@@ -371,8 +419,8 @@
         <!-- Main Results -->
         <h3 class="title is-4 has-text-centered mt-6" data-aos="fade-up">Main Results</h3>
         <div class="content">
-          <div class="has-text-centered" data-aos="fade-up" data-aos-delay="100">
-            <img src="./static/images/results.png" alt="Quantitative Comparison" class="method-figure">
+          <div class="has-text-centered comparison-container" data-aos="fade-up" data-aos-delay="100">
+            <img src="./static/images/results.png" alt="Quantitative Comparison" class="method-figure" style="background-color: #ffffff;">
           </div>
           
           <div class="content has-text-justified mt-4" data-aos="fade-up" data-aos-delay="150">
@@ -385,8 +433,8 @@
         <!-- Properties of Our Tokenizer -->
         <h3 class="title is-4 has-text-centered mt-6" data-aos="fade-up">Properties of Our Tokenizer</h3>
         <div class="content">
-          <div class="has-text-centered" data-aos="fade-up" data-aos-delay="100">
-            <img src="./static/images/recons.svg" alt="Reconstruction Quality Comparison" class="method-figure">
+          <div class="has-text-centered comparison-container" data-aos="fade-up" data-aos-delay="100">
+            <img src="./static/images/recons.svg" alt="Reconstruction Quality Comparison" class="method-figure" style="background-color: #ffffff;">
           </div>
           
           <div class="content has-text-justified mt-4" data-aos="fade-up" data-aos-delay="150">
@@ -395,9 +443,9 @@
             </p>
           </div>
           
-          <!-- 添加不同粒度重建的结果图 -->
-          <div class="has-text-centered mt-6" data-aos="fade-up" data-aos-delay="200">
-            <img src="./static/images/recons_b.svg" alt="Different Granularity Reconstruction Results" class="method-figure">
+          <!-- Different granularity reconstruction results -->
+          <div class="has-text-centered comparison-container mt-6" data-aos="fade-up" data-aos-delay="200">
+            <img src="./static/images/recons_b.svg" alt="Different Granularity Reconstruction Results" class="method-figure" style="background-color: #ffffff;">
           </div>
           
           <div class="content has-text-justified mt-4" data-aos="fade-up" data-aos-delay="250">
@@ -410,8 +458,8 @@
         <!-- Properties of Our Generator -->
         <h3 class="title is-4 has-text-centered mt-6" data-aos="fade-up">Properties of Our Generator</h3>
         <div class="content">
-          <div class="has-text-centered" data-aos="fade-up" data-aos-delay="100">
-            <img src="./static/images/parallel.svg" alt="Token Prediction Strategy Comparison" class="method-figure">
+          <div class="has-text-centered comparison-container" data-aos="fade-up" data-aos-delay="100">
+            <img src="./static/images/parallel.svg" alt="Token Prediction Strategy Comparison" class="method-figure" style="background-color: #ffffff;">
           </div>
           
           <div class="content has-text-justified mt-4" data-aos="fade-up" data-aos-delay="150">
@@ -420,8 +468,8 @@
             </p>
           </div>
           
-          <div class="has-text-centered mt-6" data-aos="fade-up" data-aos-delay="200">
-            <img src="./static/images/confidence.svg" alt="Confidence-guided Generation" class="method-figure">
+          <div class="has-text-centered comparison-container mt-6" data-aos="fade-up" data-aos-delay="200">
+            <img src="./static/images/confidence.svg" alt="Confidence-guided Generation" class="method-figure" style="background-color: #ffffff;">
           </div>
           
           <div class="content has-text-justified mt-4" data-aos="fade-up" data-aos-delay="250">
@@ -434,9 +482,9 @@
         <!-- More Visualization Results -->
         <h3 class="title is-4 has-text-centered mt-6" data-aos="fade-up">More Visualization Results</h3>
         <section class="hero teaser">
-          <div class="container" style="max-width: 1200px;">
+          <div class="container comparison-container" style="max-width: 1200px; background-color: #ffffff;">
             <div class="has-text-centered" data-aos="fade-up" data-aos-delay="100">
-              <img src="./static/images/more.svg" alt="ImageNet Generation Results" style="width: 100%; max-width: none;">
+              <img src="./static/images/more.svg" alt="ImageNet Generation Results" style="width: 100%; max-width: none; background-color: #ffffff;">
             </div>
             
             <div class="content has-text-justified mt-4" data-aos="fade-up" data-aos-delay="150">
@@ -446,6 +494,38 @@
             </div>
           </div>
         </section>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Image Comparison Grid Example -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-4 has-text-centered mt-6" data-aos="fade-up">Image Comparison Examples</h3>
+        
+        <!-- This is an example of a white-background comparison grid -->
+        <div class="comparison-container" data-aos="fade-up" data-aos-delay="100">
+          <div class="image-grid" style="background-color: #ffffff;">
+            <!-- Top row - transformed images -->
+            <img src="path/to/transformed-image1.jpg" alt="Transformed Image 1">
+            <img src="path/to/transformed-image2.jpg" alt="Transformed Image 2">
+            <img src="path/to/transformed-image3.jpg" alt="Transformed Image 3">
+            <img src="path/to/transformed-image4.jpg" alt="Transformed Image 4">
+            
+            <!-- Bottom row - original images -->
+            <img src="path/to/original-image1.jpg" alt="Original Image 1">
+            <img src="path/to/original-image2.jpg" alt="Original Image 2">
+            <img src="path/to/original-image3.jpg" alt="Original Image 3">
+            <img src="path/to/original-image4.jpg" alt="Original Image 4">
+          </div>
+          
+          <p class="has-text-centered">
+            <strong>Comparison of original images (bottom) and their transformed versions (top).</strong>
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -480,7 +560,7 @@
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-  // 初始化AOS动画库
+  // Initialize AOS animation library
   document.addEventListener('DOMContentLoaded', function() {
     AOS.init({
       duration: 800,
