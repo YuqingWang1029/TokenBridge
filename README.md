@@ -4,7 +4,7 @@
 [![Project Page](https://img.shields.io/badge/Project-Page-Green)](https://yuqingwang1029.github.io/TokenBridge/)
 
 <p align="center">
-  <img width="962" alt="image" src="https://github.com/user-attachments/assets/2b2b3eaa-42e6-47f7-a23e-cf40c2378107" />
+  <img width="1350" alt="image" src="https://github.com/user-attachments/assets/2f0a79d8-bb6f-4e86-882e-03053185e04d" />
 </p>
 
 This is a PyTorch/GPU implementation of the paper [Bridging Continuous and Discrete Tokens for Autoregressive Visual Generation](https://arxiv.org/abs/2503.16430) :
