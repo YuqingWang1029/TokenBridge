@@ -974,6 +974,13 @@ class TokenBridge(nn.Module):
         
         return continuous_tokens
 
+def tokenbridge_base(**kwargs):
+    model = TokenBridge(
+        encoder_embed_dim=768, encoder_depth=12, encoder_num_heads=12,
+        decoder_embed_dim=768, decoder_depth=12, decoder_num_heads=12,
+        channel_embed_dim=768, channel_depth=4, channel_heads=8,
+        mlp_ratio=4, norm_layer=partial(nn.LayerNorm, eps=1e-6), **kwargs)
+    return model
 
 def tokenbridge_large(**kwargs):
     model = TokenBridge(
