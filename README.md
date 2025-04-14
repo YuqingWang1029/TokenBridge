@@ -123,4 +123,4 @@ main_tokenbridge.py \
 
 
 ## Acknowledgements
-The authors are grateful to Tianhong Li for helpful discussions on MAR and to Yi Jiang, Prof. Difan Zou, and Yujin Han for valuable feedback on the early version of this work. Part of codes in this repo is based on [MAR](https://github.com/LTH14/mar).
+The authors are grateful to Tianhong Li for helpful discussions on MAR and to Yi Jiang, Prof. Difan Zou, and Yujin Han for valuable feedback on the early version of this work. Part of the code in this repo is based on [MAR](https://github.com/LTH14/mar).
