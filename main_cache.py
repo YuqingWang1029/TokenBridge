@@ -14,7 +14,7 @@ import util.misc as misc
 from util.loader import ImageFolderWithFilename
 
 from models.vae import AutoencoderKL
-from engine_mar import cache_latents
+from engine_tokenbridge import cache_latents
 
 from util.crop import center_crop_arr
 
