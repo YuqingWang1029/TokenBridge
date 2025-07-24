@@ -55,7 +55,7 @@ To evaluate the reconstruction quality of our post-training quantization approac
 ```bash
 python reconstruction.py --bits 6 --range 5.0 --image_dir ${IMAGENET_PATH}
 ```
-It is expected to achieve near-lossless reconstruction with metrics comparable to continuous VAE (FID Score: ~1.11, Inception Score: ~305 on Imagenet **training** dataset instead of validation).
+It is expected to achieve near-lossless reconstruction with metrics comparable to continuous VAE (FID Score: ~1.11, Inception Score: ~305 on Imagenet **training** set, the rFID is **~0.53** on **validation** set).
 
 
 ## Generation
